@@ -70,11 +70,11 @@ $ head passwords.log
 3927 dragon
 ```
 
-### Password coverage by top # password
+### cumsum of password coverage of top # passwords
 
 ```
-$ awk '{ SUM += $1 } { printf "%d %d %.2f%%\n", NR, SUM, SUM * 100 / 10000000 }' passwords.log > coverage.log
-$ head coverage.log
+$ awk '{ SUM += $1 } { printf "%d %d %.2f%%\n", NR, SUM, SUM * 100 / 10000000 }' passwords.log > cumsum.log
+$ head cumsum
 1 55893 0.56%
 2 75473 0.75%
 3 89055 0.89%
@@ -88,10 +88,10 @@ $ head coverage.log
 ```
 
 ```
-$ head -100 coverage.log | gnuplot -p -e 'plot "< cat -" using 1:3 with lines'
+$ head -100 cumsum.log | gnuplot -p -e 'plot "< cat -" using 1:3 with lines'
 ```
 
-![Account coverage by number of passwords tested](coverage.png)
+![Account coverage by number of passwords tested](cumsum.png)
 
 ## References
 
