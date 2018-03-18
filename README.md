@@ -57,8 +57,41 @@ $ time cut -f 2 cleaned.txt | sort | uniq -c | sort -rn > passwords.log
 ### Most common passwords
 
 ```
+$ head passwords.log
+55893 123456
+19580 password
+13582 12345678
+13137 qwerty
+11696 123456789
+10938 12345
+6432 1234
+5682 111111
+4796 1234567
+3927 dragon
+```
 
+### cumsum of password coverage of top # passwords
 
+```
+$ awk '{ SUM += $1 } { printf "%d %d %.2f%%\n", NR, SUM, SUM * 100 / 10000000 }' passwords.log > cumsum.log
+$ head cumsum
+1 55893 0.56%
+2 75473 0.75%
+3 89055 0.89%
+4 102192 1.02%
+5 113888 1.14%
+6 124826 1.25%
+7 131258 1.31%
+8 136940 1.37%
+9 141736 1.42%
+10 145663 1.46%
+```
+
+```
+$ head -100 cumsum.log | gnuplot -p -e 'plot "< cat -" using 1:3 with lines'
+```
+
+![Account coverage by number of passwords tested](cumsum.png)
 
 ## References
 
