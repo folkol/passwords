@@ -70,7 +70,7 @@ $ head passwords.log
 3927 dragon
 ```
 
-### cumsum of account coverage by no. of passwords tried
+### account coverage by no. of passwords tried
 
 ```
 $ awk '{ SUM += $1 } { printf "%d %d %.2f%%\n", NR, SUM, SUM * 100 / 10000000 }' passwords.log > cumsum.log
