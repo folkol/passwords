@@ -95,7 +95,7 @@ $ head -100 cumsum.log | gnuplot -p -e 'plot "< cat -" using 1:3 with lines'
 
 ## References
 
-https://xa.to/file/10-million-combos.torrent (Note: I got connection timeout with https, but it worked with http...)
-https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495
-https://xato.net/ten-million-passwords-faq-3b2752ed3b4c
+- https://xa.to/file/10-million-combos.torrent (N.b. I got connection timeout with https, but it worked with http...)
+- https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495
+- https://xato.net/ten-million-passwords-faq-3b2752ed3b4c
 
